@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smz.springbootdemo.generate.SubscriberinfoDao">
+  <resultMap id="BaseResultMap" type="com.smz.springbootdemo.generate.Subscriberinfo">
+    <id column="usersn" jdbcType="INTEGER" property="usersn" />
+    <result column="userid" jdbcType="VARCHAR" property="userid" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="userstate" jdbcType="TINYINT" property="userstate" />
+    <result column="telnumber" jdbcType="VARCHAR" property="telnumber" />
+    <result column="firstlogintime" jdbcType="TIMESTAMP" property="firstlogintime" />
+    <result column="areaid" jdbcType="INTEGER" property="areaid" />
+    <result column="groupid" jdbcType="INTEGER" property="groupid" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="operatetype" jdbcType="TINYINT" property="operatetype" />
+    <result column="tombtime" jdbcType="INTEGER" property="tombtime" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+    <result column="area_id" jdbcType="INTEGER" property="areaId" />
+    <result column="tomb_time" jdbcType="INTEGER" property="tombTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    usersn, userid, username, userstate, telnumber, firstlogintime, areaid, groupid, 
+    `password`, operatetype, tombtime, version, area_id, tomb_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from subscriberinfo
+    where usersn = #{usersn,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from subscriberinfo
+    where usersn = #{usersn,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="usersn" keyProperty="usersn" parameterType="com.smz.springbootdemo.generate.Subscriberinfo" useGeneratedKeys="true">
+    insert into subscriberinfo (userid, username, userstate, 
+      telnumber, firstlogintime, areaid, 
+      groupid, `password`, operatetype, 
+      tombtime, version, area_id, 
+      tomb_time)
+    values (#{userid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{userstate,jdbcType=TINYINT}, 
+      #{telnumber,jdbcType=VARCHAR}, #{firstlogintime,jdbcType=TIMESTAMP}, #{areaid,jdbcType=INTEGER}, 
+      #{groupid,jdbcType=INTEGER}, #{password,jdbcType=VARCHAR}, #{operatetype,jdbcType=TINYINT}, 
+      #{tombtime,jdbcType=INTEGER}, #{version,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER}, 
+      #{tombTime,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="usersn" keyProperty="usersn" parameterType="com.smz.springbootdemo.generate.Subscriberinfo" useGeneratedKeys="true">
+    insert into subscriberinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="userstate != null">
+        userstate,
+      </if>
+      <if test="telnumber != null">
+        telnumber,
+      </if>
+      <if test="firstlogintime != null">
+        firstlogintime,
+      </if>
+      <if test="areaid != null">
+        areaid,
+      </if>
+      <if test="groupid != null">
+        groupid,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+      <if test="operatetype != null">
+        operatetype,
+      </if>
+      <if test="tombtime != null">
+        tombtime,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="areaId != null">
+        area_id,
+      </if>
+      <if test="tombTime != null">
+        tomb_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userstate != null">
+        #{userstate,jdbcType=TINYINT},
+      </if>
+      <if test="telnumber != null">
+        #{telnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="firstlogintime != null">
+        #{firstlogintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="areaid != null">
+        #{areaid,jdbcType=INTEGER},
+      </if>
+      <if test="groupid != null">
+        #{groupid,jdbcType=INTEGER},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="operatetype != null">
+        #{operatetype,jdbcType=TINYINT},
+      </if>
+      <if test="tombtime != null">
+        #{tombtime,jdbcType=INTEGER},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null">
+        #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="tombTime != null">
+        #{tombTime,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.smz.springbootdemo.generate.Subscriberinfo">
+    update subscriberinfo
+    <set>
+      <if test="userid != null">
+        userid = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userstate != null">
+        userstate = #{userstate,jdbcType=TINYINT},
+      </if>
+      <if test="telnumber != null">
+        telnumber = #{telnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="firstlogintime != null">
+        firstlogintime = #{firstlogintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="areaid != null">
+        areaid = #{areaid,jdbcType=INTEGER},
+      </if>
+      <if test="groupid != null">
+        groupid = #{groupid,jdbcType=INTEGER},
+      </if>
+      <if test="password != null">
+        `password` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="operatetype != null">
+        operatetype = #{operatetype,jdbcType=TINYINT},
+      </if>
+      <if test="tombtime != null">
+        tombtime = #{tombtime,jdbcType=INTEGER},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null">
+        area_id = #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="tombTime != null">
+        tomb_time = #{tombTime,jdbcType=INTEGER},
+      </if>
+    </set>
+    where usersn = #{usersn,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.smz.springbootdemo.generate.Subscriberinfo">
+    update subscriberinfo
+    set userid = #{userid,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      userstate = #{userstate,jdbcType=TINYINT},
+      telnumber = #{telnumber,jdbcType=VARCHAR},
+      firstlogintime = #{firstlogintime,jdbcType=TIMESTAMP},
+      areaid = #{areaid,jdbcType=INTEGER},
+      groupid = #{groupid,jdbcType=INTEGER},
+      `password` = #{password,jdbcType=VARCHAR},
+      operatetype = #{operatetype,jdbcType=TINYINT},
+      tombtime = #{tombtime,jdbcType=INTEGER},
+      version = #{version,jdbcType=INTEGER},
+      area_id = #{areaId,jdbcType=INTEGER},
+      tomb_time = #{tombTime,jdbcType=INTEGER}
+    where usersn = #{usersn,jdbcType=INTEGER}
+  </update>
+</mapper>
