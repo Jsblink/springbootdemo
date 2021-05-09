@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: springbootdemo
+  datasource:
+    url: jdbc:mysql://122.51.224.214:3306/pyg
+    username: pyg
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  redis:
+    host: 122.51.224.214
+    port: 8200
+    timeout: 1000
+
+  cache:
+    type: jcache
+    jcache:
+      config: classpath:ehcache-3.xml
+
+
+#debug: true
+
+server:
+  port: 9000
+  tomcat:
+    accesslog:
+      directory: d:/logs
+      enabled: true
+      prefix: localhost_access_log.
+      suffix: .txt
+      pattern: '%h,%l,%u,%t,%T,"%r",%s,%b,%{Referer}i,"%{User-Agent}i",%{X-Requested-With}i,%{passport}c'
+      file-date-format: yyyy-MM-dd
+file:
+  upload:
+    path:
+  prefix:
+    dir: /data/images/
+
+product:
+  crypto:
+    salt: 1234567890ABCDEF
+    algorithm: AES/ECB/PKCS5Padding
+
+zookeeper:
+  address: 122.51.224.214:2181
+  timeout: 4000
