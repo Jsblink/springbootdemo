@@ -2,13 +2,13 @@ spring:
   application:
     name: springbootdemo
   datasource:
-    url: jdbc:mysql://122.51.224.214:3306/pyg
+    url: jdbc:mysql://1.2.3.4:3306/pyg
     username: pyg
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   redis:
-    host: 122.51.224.214
+    host: 1.2.3.4
     port: 8200
     timeout: 1000
 
@@ -24,7 +24,7 @@ server:
   port: 9000
   tomcat:
     accesslog:
-      directory: d:/logs
+      #directory: d:/logs
       enabled: true
       prefix: localhost_access_log.
       suffix: .txt
@@ -42,5 +42,5 @@ product:
     algorithm: AES/ECB/PKCS5Padding
 
 zookeeper:
-  address: 122.51.224.214:2181
+  address: 1.2.3.4
   timeout: 4000

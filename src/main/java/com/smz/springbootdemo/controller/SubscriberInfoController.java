@@ -18,6 +18,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/** MVC架构，实现订户模型表subscriberinfo的增删改查功能
+ *
+ */
 @RestController
 @RequestMapping("/subscriberinfo")
 @CrossOrigin( methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.OPTIONS})
@@ -86,6 +89,13 @@ public class SubscriberInfoController {
         return OperateResult.OPERATE_SUCCESS;
     }
 
+    /**分页查询
+     *
+     * @param page 查询的页数
+     * @param size 每页数据条数
+     * @return
+     * @throws JsonProcessingException
+     */
     @RequestMapping("/query-all-by-page")
     public String queryAllSubscriberInfoByPage(int page, int size) throws JsonProcessingException {
         logger.debug("query-all-by-page method begin");
